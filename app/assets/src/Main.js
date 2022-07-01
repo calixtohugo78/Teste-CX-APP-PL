@@ -9,7 +9,12 @@ client.metadata().then((metadata) => {
 
 const Main = async () => {
   const App = document.getElementById("app");
-  let appBody = `<div id="main-content"></div>`;
+  let appBody = `
+      <div id="main-content">
+        <input type="text" id="cep" name="cep" />
+        <input type="button" id="btn" name="btn" value="Pesquisar" />  
+      </div>
+  `;
 
   // Write App
   App.innerHTML = appBody;
