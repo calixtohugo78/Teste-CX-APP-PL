@@ -4,3 +4,33 @@
 html {
   overflow-y: auto;
 }
+input{
+  outline: 0;
+  border-radius: 4px;
+}
+
+
+#main-content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  padding: 2%;
+}
+
+input[type="text"] {
+
+  padding: 10px;
+  border: 1px solid #ccc;
+  
+}
+
+input[type="button"] {
+
+  padding: 8px;
+  border: 1px solid #3b3b3b;
+  background-color: rgb(1, 32, 36);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+
+}

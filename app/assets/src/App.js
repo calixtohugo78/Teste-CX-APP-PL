@@ -6,9 +6,10 @@ client.on("app.registered", (e) => {
 
 
 // Create screen context
-import Main from "./Main.js";
+import Main, {Insert} from "./Main.js";
 Main();
 
+// Get Value and Find API
 const $ = document.querySelector.bind(document);
 
 $('#btn').addEventListener('click', async () => {
@@ -16,7 +17,9 @@ $('#btn').addEventListener('click', async () => {
   const inputValue = $('#cep').value;
   const unMaskValue = filterValue(inputValue);
 
-  console.log(await searchCEP(unMaskValue));
+  const apiRes = await searchCEP(unMaskValue);
+
+  Insert(apiRes);
 
 });
 
