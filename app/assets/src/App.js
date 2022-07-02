@@ -12,6 +12,7 @@ Main();
 // Get Value and Find API
 const $ = document.querySelector.bind(document);
 
+
 $('#btn').addEventListener('click', async () => {
   
   const inputValue = $('#cep').value;
@@ -20,6 +21,8 @@ $('#btn').addEventListener('click', async () => {
   const apiRes = await searchCEP(unMaskValue);
 
   Insert(apiRes);
+
+  $('#cep').value = "";
 
 });
 
@@ -38,4 +41,15 @@ async function searchCEP(value) {
 }
 
 
-//
+// MaskCEP
+
+$('#cep').addEventListener("keyup", () => {
+  
+  const inputValue = $('#cep');
+
+  let zipCode = inputValue.value;
+  if(zipCode.length === 8) {
+    inputValue.value = `${zipCode.substr(0,5)}-${zipCode.substr(5,9)}`;
+    console.log(zipCode); 
+  }
+});

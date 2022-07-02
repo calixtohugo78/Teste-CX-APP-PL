@@ -1,10 +1,13 @@
 * {
   box-sizing: border-box;
 }
+
 html {
   overflow-y: auto;
+  min-height: 300px;
 }
-input{
+
+input {
   outline: 0;
   border-radius: 4px;
 }
@@ -21,7 +24,7 @@ input[type="text"] {
 
   padding: 10px;
   border: 1px solid #ccc;
-  
+
 }
 
 input[type="button"] {
@@ -33,4 +36,73 @@ input[type="button"] {
   font-weight: bold;
   cursor: pointer;
 
+}
+
+hr {
+  margin: 16px 0;
+}
+
+h6 {
+
+  font-size: 16px;
+  color: rgb(1, 32, 36);
+  text-decoration: underline;
+  font-weight: bold;
+
+}
+
+table {
+  text-align: left;
+  font-size: 14px;
+}
+
+table td {
+  margin-right: 4px;
+}
+
+table tr.head {
+
+  padding: 8px 0;
+  font-weight: bold;
+  border-bottom: 1px solid rgb(1, 32, 36);
+
+}
+
+table tr.body {
+
+  padding: 8px 0;
+  border-bottom: 1px solid #ccc;
+
+}
+
+/****/
+
+.lds-ripple {
+  color: rgb(1, 32, 36);
+  margin-top: 8px;
+  font-size: 15px;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+
+@keyframes lds-ripple {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 0.25;
+  }
+
+  50% {
+    opacity: 0.50;
+  }
+
+  75% {
+    opacity: 0.75;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

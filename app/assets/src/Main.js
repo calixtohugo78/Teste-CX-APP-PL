@@ -12,42 +12,7 @@ let recentTickets;
 async function tableTickets() {
 
   const response = await client.request('/api/v2/tickets/recent');
-  const tickets = response.json();
-
-  console.log(tickets);
-
-  return ` Gone`
-
-}
-/* client.request('/api/v2/tickets/recent').then(
-  function(tickets) {
-    console.log(tickets);
-    recentTickets = tickets;
-  },
-  function(response) {
-    console.error(response.responseText);
-  }
-); */
-
-const Main = async () => {
-  const App = document.getElementById("app");
-  let appBody = `
-      <div id="main-content">
-        <input type="text" id="cep" name="cep" placeholder="Digite um CEP" />
-        <input type="button" id="btn" name="btn" value="Pesquisar" />  
-
-        <hr/>
-
-        ${tableTickets(recentTickets)}
-      
-      </div>
-  `;
-
-  // Write App
-  App.innerHTML = appBody;
-};
-
-const tableTickets = (array) => {
+  const tickets = response.tickets;
 
   const table = `
 
@@ -55,16 +20,16 @@ const tableTickets = (array) => {
 
     <table>
 
-      <tr>
+      <tr class="head">
         <th>Status</th>
         <th>Assunto</th>
       </tr>
 
       ${
-        array.map((item) => {
+        tickets.map((item) => {
 
           return`
-            <tr>
+            <tr class="body">
               <td>${item.status}</td>
               <td>${item.subject}</td>
             </tr>
@@ -76,7 +41,23 @@ const tableTickets = (array) => {
     <table/>
   `
 
+  return table;
+
 }
+
+const Main = async () => {
+  const App = document.getElementById("app");
+  let appBody = `
+      <div id="main-content">
+        
+        ${await tableTickets()}
+      
+      </div>
+  `;
+
+  // Write App
+  App.innerHTML = appBody;
+};
 
 export const Insert = (content) => {
 
